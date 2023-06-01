@@ -20,7 +20,7 @@ function App() {
   //funcion "guardar" del boton del form para guardar nota 
   
   const guardar = ()=>{
-    Axios.post("https://sitio-notas.onrender.com/notas",{ //http://localhost:3001/crear
+    Axios.post("https://sitio-notas.onrender.com/crear",{ //http://localhost:3001/crear
       titulo:titulo,
       autor:autor,
       nota:nota,
@@ -52,7 +52,7 @@ function App() {
   const eliminarNota = (id)=>{
 
     let alerta = `Estas seguro de que queres borrar la nota ${id}?`;
-    if (window.confirm(alerta) == true) {
+    if (window.confirm(alerta) === true) {
       Axios.delete(`https://sitio-notas.onrender.com/delete/${id}`).then(()=>{//http://localhost:3001/delete/${id}
         getNotas();
         cancelar();
